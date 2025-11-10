@@ -2,7 +2,8 @@ public class CableYadaptador extends Producto {
     private TipoAdaptador punta1;
     private TipoAdaptador punta2;
 
-    public CableYadaptador(TipoAdaptador punta1, TipoAdaptador punta2) {
+    public CableYadaptador(double precio, String marca, String modelo, TipoAdaptador punta1, TipoAdaptador punta2) {
+        super(precio, marca, modelo);
         this.punta1 = punta1;
         this.punta2 = punta2;
     }

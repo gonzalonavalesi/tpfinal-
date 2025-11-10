@@ -1,0 +1,41 @@
+[
+    {
+        "gmail": "juan@gmail.com",
+        "usuario": "Juan2024",
+        "tipoDelUsuario": "administrador",
+        "nombre": "Juan Cruz",
+        "metodosDePago": [{
+            "fechaCaducidad": "2026-12-01",
+            "cvv": 123,
+            "tipoTarjeta": "Visa",
+            "numeroTarjeta": "4000123456789012"
+        }],
+        "contraseña": "profe1"
+    },
+    {
+        "gmail": "aye9876@gmail.com",
+        "usuario": "ayeeee",
+        "tipoDelUsuario": "vip",
+        "nombre": "Ayelen",
+        "metodosDePago": [{
+            "fechaCaducidad": "2027-10-01",
+            "cvv": 456,
+            "tipoTarjeta": "Mastercard",
+            "numeroTarjeta": "5000987654321098"
+        }],
+        "contraseña": "profe2"
+    },
+    {
+        "gmail": "juli2006@gmail.com",
+        "usuario": "juliRamoss",
+        "tipoDelUsuario": "logueado",
+        "nombre": "Julian",
+        "metodosDePago": [{
+            "fechaCaducidad": "2028-05-01",
+            "cvv": 789,
+            "tipoTarjeta": "Visa",
+            "numeroTarjeta": "4111000011110000"
+        }],
+        "contraseña": "estudiante1"
+    }
+]
