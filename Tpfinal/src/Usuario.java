@@ -12,6 +12,7 @@ public class Usuario {
     private String gmail;
     private TipoUsuario tipoDelUsuario;
     private HashSet<MetodoDePago> metodosDePago;
+    private Carrito<Producto> carritoProductos;
 
     public Usuario(String usuario, String contraseña, String nombre, String gmail) {
         this.usuario = usuario;
@@ -20,6 +21,17 @@ public class Usuario {
         this.gmail = gmail;
         this.tipoDelUsuario = TipoUsuario.logueado;
         this.metodosDePago = new HashSet<>();
+        this.carritoProductos = new Carrito<>();
+    }
+
+    public Usuario(String usuario, String contraseña, String nombre, String gmail, TipoUsuario tipoUsuario) {
+        this.usuario = usuario;
+        this.contraseña = contraseña;
+        this.nombre = nombre;
+        this.gmail = gmail;
+        this.tipoDelUsuario = tipoUsuario;
+        this.metodosDePago = new HashSet<>();
+        this.carritoProductos = new Carrito<>();
     }
 
     public Usuario(){
@@ -29,6 +41,7 @@ public class Usuario {
         this.gmail = null;
         this.tipoDelUsuario = TipoUsuario.noLogueado;
         this.metodosDePago = new HashSet<>();
+        this.carritoProductos = new Carrito<>();
     }
 
     public Usuario(JSONObject obj){
@@ -46,6 +59,19 @@ public class Usuario {
             MetodoDePago tarjeta = new MetodoDePago(tarjetasJson);
             this.metodosDePago.add(tarjeta);
         }
+        this.carritoProductos = new Carrito<>();
+    }
+
+    public boolean añadirProductoAlCarrito(Producto p){
+        return this.carritoProductos.agregarAlCarrito(p);
+    }
+
+    public String mostrarProductos(){
+        StringBuilder contenido = new StringBuilder();
+            for(Producto producto : this.carritoProductos.getCarrito()){
+                contenido.append(producto);
+            }
+        return contenido.toString();
     }
 
     public boolean añadirTarjeta(TipoMetodoDePago tipoTarjeta, String numeroTarjeta, int año, int mes, int dia, int cvv){

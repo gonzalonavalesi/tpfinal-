@@ -27,8 +27,9 @@ public class MousePad extends Periferico{
     @Override
     public String toString() {
         return "MousePad{" +
+                super.toString() +
                 "tipoSuperficie='" + tipoSuperficie + '\'' +
                 ", tamaño='" + tamaño + '\'' +
-                "} " + super.toString();
+                "} "+"\n\n";
     }
 }

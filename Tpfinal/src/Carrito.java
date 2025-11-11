@@ -10,19 +10,31 @@ public class Carrito <T>{
         this.carrito = new ArrayList<>();
     }
 
-    public void agregarAlCarrito (T t){
-        carrito.add(t);
+    public boolean agregarAlCarrito (T t){
+        return this.carrito.add(t);
     }
 
     public void eliminarDelCarrito (int pos){
         carrito.remove(pos);
     }
 
+    public String mostrarCarrito(){
+        StringBuilder contenido = new StringBuilder();
+        for(T carrito : this.carrito){
+            contenido.append(carrito);
+        }
+        return contenido.toString();
+    }
+
+    public ArrayList<T> getCarrito() {
+        return carrito;
+    }
+
     @Override
     public String toString() {
-        return "Carrito{" +
+        return "\nCarrito{" +
                 "carrito=" + carrito +
-                '}';
+                '}'+"\n";
     }
 
 }

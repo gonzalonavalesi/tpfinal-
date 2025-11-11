@@ -27,8 +27,9 @@ public class Teclado extends Periferico{
     @Override
     public String toString() {
         return "Teclado{" +
+                super.toString()+
                 "tipoTeclado=" + tipoTeclado +
                 ", tipoMecanismo=" + tipoMecanismo +
-                "} " + super.toString();
+                "} " + "\n\n";
     }
 }

@@ -86,15 +86,16 @@ public class Notebook extends Producto{
 
     @Override
     public String toString() {
-        return "Notebook{" +
-                "cpu=" + cpu +
-                ", motherBoard=" + motherBoard +
-                ", gpu=" + gpu +
-                ", almacenamiento=" + almacenamiento +
-                ", ram=" + ram +
-                ", bateria=" + bateria +
-                ", calidadPantalla='" + calidadPantalla + '\'' +
-                ", pulgadas=" + pulgadas +
-                "} " + super.toString();
+        return "==Notebook{" +
+                super.toString() +
+                cpu +
+                motherBoard +
+                gpu +
+                almacenamiento +
+                ram +
+                "bateria=" + bateria +
+                "calidadPantalla='" + calidadPantalla + "\n\n" +
+                "pulgadas=" + pulgadas +
+                "} " + "\n\n";
     }
 }

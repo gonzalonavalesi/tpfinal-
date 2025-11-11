@@ -57,11 +57,12 @@ public class Monitor extends Periferico{
     @Override
     public String toString() {
         return "Monitor{" +
+                super.toString()+
                 "pulgadas=" + pulgadas +
                 ", calidadPantalla='" + calidadPantalla + '\'' +
                 ", curvo=" + curvo +
                 ", frecuencia=" + frecuencia +
                 ", tiempoRespuesta=" + tiempoRespuesta +
-                "} " + super.toString();
+                "} " + "\n\n";
     }
 }

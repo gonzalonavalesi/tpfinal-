@@ -27,8 +27,9 @@ public class Fuente extends Producto{
     @Override
     public String toString() {
         return "Fuente{" +
+                super.toString()+
                 "watts=" + watts +
                 ", certificacion=" + certificacion +
-                "} " + super.toString();
+                "} " + "\n\n";
     }
 }

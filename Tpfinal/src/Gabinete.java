@@ -17,7 +17,8 @@ public class Gabinete extends Producto{
     @Override
     public String toString() {
         return "Gabinete{" +
+                super.toString()+
                 "rgb=" + rgb +
-                "} " + super.toString();
+                "} " +"\n\n";
     }
 }

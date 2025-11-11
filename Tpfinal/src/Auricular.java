@@ -28,8 +28,9 @@ public class Auricular extends Periferico{
     @Override
     public String toString() {
         return "Auricular{" +
+                super.toString()+
                 "audio='" + audio + '\'' +
                 ", microfono=" + microfono +
-                "} " + super.toString();
+                "} " + "\n\n";
     }
 }

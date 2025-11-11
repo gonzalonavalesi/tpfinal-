@@ -37,9 +37,10 @@ public abstract class Periferico extends Producto{
     @Override
     public String toString() {
         return "Periferico{" +
+                super.toString() +
                 "color='" + color + '\'' +
                 ", rgb=" + rgb +
                 ", inalambrico=" + inalambrico +
-                "} " + super.toString();
+                "} ";
     }
 }

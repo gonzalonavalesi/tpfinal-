@@ -28,8 +28,9 @@ public class Refrigeracion extends Producto{
     @Override
     public String toString() {
         return "Refrigeracion{" +
+                super.toString()+
                 "socket=" + socket +
                 ", refrigeracion=" + refrigeracion +
-                "} " + super.toString();
+                "} " + "\n\n";
     }
 }

@@ -47,10 +47,11 @@ public class Cpu extends Producto{
     @Override
     public String toString() {
         return "Cpu{" +
+                super.toString() +
                 "socket=" + socket +
                 ", nucleos=" + nucleos +
                 ", hilos=" + hilos +
                 ", integrados='" + integrados + '\'' +
-                "} " + super.toString();
+                "} " + "\n\n";
     }
 }

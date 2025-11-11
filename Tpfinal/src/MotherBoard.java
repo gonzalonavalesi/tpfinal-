@@ -17,7 +17,8 @@ public class MotherBoard extends Producto{
     @Override
     public String toString() {
         return "MotherBoard{" +
+                super.toString()+
                 "socket=" + socket +
-                "} " + super.toString();
+                "} " + "\n\n";
     }
 }

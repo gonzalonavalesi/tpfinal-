@@ -27,8 +27,9 @@ public class Ram extends Producto{
     @Override
     public String toString() {
         return "Ram{" +
+                super.toString()+
                 "tipoMemoria=" + tipoMemoria +
                 ", gb=" + gb +
-                "} " + super.toString();
+                "} " + "\n\n";
     }
 }

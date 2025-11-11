@@ -17,7 +17,8 @@ public class Gpu extends Producto{
     @Override
     public String toString() {
         return "Gpu{" +
+                super.toString()+
                 "memoria=" + memoria +
-                "} " + super.toString();
+                "} " +"\n\n";
     }
 }

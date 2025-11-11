@@ -17,8 +17,8 @@ public class Combos <T>{
 
     @Override
     public String toString() {
-        return "Combos{" +
+        return "\nCombos{" +
                 "combos=" + combos +
-                '}';
+                '}'+"\n";
     }
 }

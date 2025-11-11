@@ -27,8 +27,9 @@ public class Almacenamiento extends Producto{
     @Override
     public String toString() {
         return "Almacenamiento{" +
+                super.toString()+
                 "tipoAlmacenamiento=" + tipoAlmacenamiento +
                 ", gb=" + gb +
-                "} " + super.toString();
+                "} " +"\n\n";
     }
 }

@@ -86,15 +86,16 @@ public class ComputadoraEscritorio extends Producto{
 
     @Override
     public String toString() {
-        return "ComputadoraEscritorio{" +
-                "cpu=" + cpu +
-                ", gpu=" + gpu +
-                ", motherBoard=" + motherBoard +
-                ", almacenamiento=" + almacenamiento +
-                ", ram=" + ram +
-                ", refrigeracion=" + refrigeracion +
-                ", fuente=" + fuente +
-                ", gabinete=" + gabinete +
-                "} " + super.toString();
+        return "==ComputadoraEscritorio{" +
+                super.toString()+
+                 cpu +
+                 gpu +
+                 motherBoard +
+                 almacenamiento +
+                 ram +
+                 refrigeracion +
+                 fuente +
+                 gabinete +
+                "} " +"\n\n";
     }
 }

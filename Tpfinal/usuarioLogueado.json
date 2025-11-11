@@ -1,13 +1,8 @@
 {
-    "gmail": "juan@gmail.com",
-    "usuario": "Juan2024",
-    "tipoDelUsuario": "administrador",
-    "nombre": "Juan Cruz",
-    "metodosDePago": [{
-        "fechaCaducidad": "2026-12-01",
-        "cvv": 123,
-        "tipoTarjeta": "Visa",
-        "numeroTarjeta": "4000123456789012"
-    }],
-    "contraseña": "profe1"
+    "gmail": "juli@gmail.com",
+    "usuario": "juliuser23",
+    "tipoDelUsuario": "logueado",
+    "nombre": "julian",
+    "metodosDePago": [],
+    "contraseña": "estudiante1"
 }

@@ -15,7 +15,8 @@ public class Mouse extends Periferico{
     @Override
     public String toString() {
         return "Mouse{" +
+                super.toString()+
                 "dpi=" + dpi +
-                "} " + super.toString();
+                "} " + "\n\n";
     }
 }
