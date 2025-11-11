@@ -298,7 +298,7 @@ public class SistemaDeGestion {
         for(Producto producto : productoHashSet){
             ticket.agregarProductoTicket(producto);
         }
-        ticket.imprimirTicket();
+        ticket.imprimir();
         guardarTicket(ticket.toJson());
     }
 
