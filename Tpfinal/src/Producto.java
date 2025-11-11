@@ -1,3 +1,5 @@
+import org.json.JSONObject;
+
 public abstract class Producto {
     private int idProducto;
     private static int contador=0;
@@ -60,5 +62,14 @@ public abstract class Producto {
                 ", marca='" + marca + '\'' +
                 ", modelo='" + modelo + '\'' +
                 '}';
+    }
+
+    public JSONObject toJSON(){
+        JSONObject json = new JSONObject();
+        json.put("idProducto", this.idProducto);
+        json.put("precio", this.precio);
+        json.put("marca", this.marca);
+        json.put("modelo", this.modelo);
+        return json;
     }
 }

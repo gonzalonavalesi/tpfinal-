@@ -1,15 +1,15 @@
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
+import java.util.*;
 
 public class SistemaDeGestion {
     private HashSet<Usuario> arregloUsuarios;
+    private HashMap <String, Carrito> carritoUsuarios;
 
     public SistemaDeGestion() {
         this.arregloUsuarios = new HashSet<>();
+        this.carritoUsuarios = new HashMap<>();
     }
 
     public SistemaDeGestion(JSONArray arreglo){
@@ -36,6 +36,37 @@ public class SistemaDeGestion {
         return false;
     }
 
+    public boolean agregarComboAlCarrito(HashMap<String, Carrito> carritoUsuarios, String nombreUsuario, Combos combo){
+        for(Map.Entry<String, Carrito> entrada : carritoUsuarios.entrySet()){
+            if(entrada.getKey().equalsIgnoreCase(nombreUsuario)){
+                Carrito carrito = entrada.getValue();
+                carrito.agregarAlCarrito(combo);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean agregarProductoAlCarrito(HashMap<String, Carrito> carritoUsuarios, String nombreUsuario, Producto p){
+        for(Map.Entry<String, Carrito> entrada : carritoUsuarios.entrySet()){
+            if(entrada.getKey().equalsIgnoreCase(nombreUsuario)){
+                Carrito carrito = entrada.getValue();
+                carrito.agregarAlCarrito(p);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public String mostrarCarrito(){
+        StringBuilder contenido = new StringBuilder();
+        Iterator<Map.Entry<String, Carrito>> iterator = this.carritoUsuarios.entrySet().iterator();
+        while(iterator.hasNext()){
+            contenido.append(iterator.next().getValue());
+        }
+        return contenido.toString();
+    }
+
     public String mostrarUsuarios(){
         StringBuilder contenido = new StringBuilder();
         for(Usuario usuario : this.arregloUsuarios){
@@ -50,6 +81,14 @@ public class SistemaDeGestion {
 
     public void setArregloUsuarios(HashSet<Usuario> arregloUsuarios) {
         this.arregloUsuarios = arregloUsuarios;
+    }
+
+    public HashMap<String, Carrito> getCarritoUsuarios() {
+        return carritoUsuarios;
+    }
+
+    public void setCarritoUsuarios(HashMap<String, Carrito> carritoUsuarios) {
+        this.carritoUsuarios = carritoUsuarios;
     }
 
     @Override
