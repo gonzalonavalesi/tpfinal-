@@ -1,0 +1,20 @@
+[{
+    "fecha": "2025-11-11T20:21:28.368396900",
+    "id": 0,
+    "nombreUsuario": "julian",
+    "productos": [{
+        "marca": "Logitech",
+        "precio": 45000,
+        "tipo": "Mouse",
+        "color": "Negro",
+        "inalambrico": false,
+        "idProducto": 16,
+        "rgb": true,
+        "dpi": [
+            800,
+            1600,
+            3200
+        ],
+        "modelo": "G502 Hero"
+    }]
+}]

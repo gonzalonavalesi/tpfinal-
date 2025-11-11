@@ -1,0 +1,309 @@
+[
+    {
+        "gmail": "juli@gmail.com",
+        "carritoProductos": {"carrito": []},
+        "usuario": "juliuser23",
+        "tipoDelUsuario": "logueado",
+        "nombre": "julian",
+        "metodosDePago": [{
+            "fechaCaducidad": "2026-05-02",
+            "cvv": 123,
+            "tipoTarjeta": "Visa",
+            "numeroTarjeta": "1234123412341234"
+        }],
+        "contraseña": "estudiante1"
+    },
+    {
+        "gmail": "aye777@gmail.com",
+        "carritoProductos": {"carrito": []},
+        "usuario": "ayeeGamer",
+        "tipoDelUsuario": "vip",
+        "nombre": "Aye",
+        "metodosDePago": [],
+        "contraseña": "hg6gu3y5g6yu35g63uy5464iu64"
+    },
+    {
+        "gmail": "juanBussines@gmail.com",
+        "carritoProductos": {"carrito": []},
+        "usuario": "Juan2020",
+        "tipoDelUsuario": "administrador",
+        "nombre": "Juan",
+        "metodosDePago": [],
+        "contraseña": "s34u5h3iu4h5ui3h6u3yh56h3yh5u"
+    },
+    {
+        "marca": "AMD",
+        "precio": 450000,
+        "tipo": "Cpu",
+        "nucleos": 8,
+        "integrados": "No",
+        "hilos": 16,
+        "idProducto": 1,
+        "socket": "AM4",
+        "modelo": "Ryzen 7 5800X"
+    },
+    {
+        "marca": "Corsair",
+        "precio": 75000,
+        "tipo": "Teclado",
+        "tipoTeclado": "cienporciento",
+        "color": "Negro",
+        "inalambrico": false,
+        "idProducto": 18,
+        "rgb": true,
+        "tipoMecanismo": "switchesRed",
+        "modelo": "K70 RGB"
+    },
+    {
+        "tipoSuperficie": "Tela",
+        "marca": "Logitech",
+        "precio": 15000,
+        "tipo": "MousePad",
+        "tamaño": "XL",
+        "color": "Negro",
+        "inalambrico": false,
+        "idProducto": 24,
+        "rgb": false,
+        "modelo": "G840"
+    },
+    {
+        "tipoAlmacenamiento": "ssd",
+        "marca": "Kingston",
+        "precio": 80000,
+        "tipo": "Almacenamiento",
+        "idProducto": 6,
+        "gb": 500,
+        "modelo": "A400 500GB"
+    },
+    {
+        "marca": "Corsair",
+        "precio": 145000,
+        "tipo": "Fuente",
+        "watts": 750,
+        "certificacion": "plusgold",
+        "idProducto": 13,
+        "modelo": "750W Gold"
+    },
+    {
+        "marca": "HyperX",
+        "precio": 95000,
+        "tipo": "Teclado",
+        "tipoTeclado": "ochentaporciento",
+        "color": "Blanco",
+        "inalambrico": false,
+        "idProducto": 19,
+        "rgb": true,
+        "tipoMecanismo": "switchesBlue",
+        "modelo": "Alloy FPS Pro"
+    },
+    {
+        "tipo": "Monitor",
+        "frecuencia": 165,
+        "color": "Negro",
+        "inalambrico": false,
+        "tiempoRespuesta": 1,
+        "rgb": true,
+        "modelo": "Odyssey G5",
+        "calidadPantalla": "QHD",
+        "marca": "Samsung",
+        "precio": 320000,
+        "curvo": true,
+        "pulgadas": 27,
+        "idProducto": 23
+    },
+    {
+        "marca": "Razer",
+        "precio": 85000,
+        "tipo": "Mouse",
+        "color": "Negro",
+        "inalambrico": false,
+        "idProducto": 17,
+        "rgb": true,
+        "dpi": [
+            400,
+            800,
+            1600,
+            3200
+        ],
+        "modelo": "DeathAdder V2"
+    },
+    {
+        "marca": "HyperX",
+        "precio": 55000,
+        "tipo": "Auricular",
+        "microfono": true,
+        "color": "Rojo",
+        "inalambrico": false,
+        "idProducto": 20,
+        "audio": "7.1 Surround",
+        "rgb": false,
+        "modelo": "Cloud II"
+    },
+    {
+        "tipoAlmacenamiento": "ssd",
+        "marca": "Western Digital",
+        "precio": 120000,
+        "tipo": "Almacenamiento",
+        "idProducto": 7,
+        "gb": 1000,
+        "modelo": "Black SN850"
+    },
+    {
+        "marca": "Logitech",
+        "precio": 45000,
+        "tipo": "Mouse",
+        "color": "Negro",
+        "inalambrico": false,
+        "idProducto": 16,
+        "rgb": true,
+        "dpi": [
+            800,
+            1600,
+            3200
+        ],
+        "modelo": "G502 Hero"
+    },
+    {
+        "marca": "Corsair",
+        "precio": 65000,
+        "tipo": "Ram",
+        "idProducto": 8,
+        "gb": 16,
+        "tipoMemoria": "DDR4",
+        "modelo": "Vengeance LPX 16GB"
+    },
+    {
+        "marca": "NZXT",
+        "precio": 85000,
+        "tipo": "Gabinete",
+        "idProducto": 14,
+        "rgb": true,
+        "modelo": "H510 Elite"
+    },
+    {
+        "marca": "Cooler Master",
+        "precio": 45000,
+        "tipo": "Refrigeracion",
+        "idProducto": 10,
+        "socket": "LGA1700",
+        "refrigeracion": "RefrigeracionPorAire",
+        "modelo": "Hyper 212"
+    },
+    {
+        "marca": "Intel",
+        "precio": 250000,
+        "tipo": "Cpu",
+        "nucleos": 6,
+        "integrados": "No",
+        "hilos": 12,
+        "idProducto": 0,
+        "socket": "LGA1700",
+        "modelo": "i5-12400F"
+    },
+    {
+        "marca": "EVGA",
+        "precio": 95000,
+        "tipo": "Fuente",
+        "watts": 650,
+        "certificacion": "plusbronze",
+        "idProducto": 12,
+        "modelo": "650W Bronze"
+    },
+    {
+        "marca": "Cooler Master",
+        "precio": 55000,
+        "tipo": "Gabinete",
+        "idProducto": 15,
+        "rgb": false,
+        "modelo": "MasterBox Q300L"
+    },
+    {
+        "marca": "G.Skill",
+        "precio": 95000,
+        "tipo": "Ram",
+        "idProducto": 9,
+        "gb": 32,
+        "tipoMemoria": "DDR5",
+        "modelo": "Trident Z5 32GB"
+    },
+    {
+        "marca": "ASUS",
+        "precio": 180000,
+        "tipo": "MotherBoard",
+        "idProducto": 4,
+        "socket": "LGA1700",
+        "modelo": "TUF Gaming B660"
+    },
+    {
+        "marca": "MSI",
+        "precio": 220000,
+        "tipo": "MotherBoard",
+        "idProducto": 5,
+        "socket": "AM5",
+        "modelo": "B550 Tomahawk"
+    },
+    {
+        "marca": "SteelSeries",
+        "precio": 125000,
+        "tipo": "Auricular",
+        "microfono": true,
+        "color": "Negro",
+        "inalambrico": true,
+        "idProducto": 21,
+        "audio": "DTS Headphone:X 2.0",
+        "rgb": true,
+        "modelo": "Arctis 7"
+    },
+    {
+        "marca": "NVIDIA",
+        "precio": 550000,
+        "tipo": "Gpu",
+        "memoria": 12,
+        "idProducto": 2,
+        "modelo": "RTX 3060"
+    },
+    {
+        "tipo": "Monitor",
+        "frecuencia": 144,
+        "color": "Negro",
+        "inalambrico": false,
+        "tiempoRespuesta": 1,
+        "rgb": false,
+        "modelo": "27GL650F",
+        "calidadPantalla": "FHD",
+        "marca": "LG",
+        "precio": 180000,
+        "curvo": false,
+        "pulgadas": 27,
+        "idProducto": 22
+    },
+    {
+        "tipoSuperficie": "Tela",
+        "marca": "Razer",
+        "precio": 25000,
+        "tipo": "MousePad",
+        "tamaño": "XXL",
+        "color": "Verde",
+        "inalambrico": false,
+        "idProducto": 25,
+        "rgb": true,
+        "modelo": "Goliathus Extended"
+    },
+    {
+        "marca": "AMD",
+        "precio": 850000,
+        "tipo": "Gpu",
+        "memoria": 16,
+        "idProducto": 3,
+        "modelo": "RX 6800 XT"
+    },
+    {
+        "marca": "Corsair",
+        "precio": 120000,
+        "tipo": "Refrigeracion",
+        "idProducto": 11,
+        "socket": "AM5",
+        "refrigeracion": "RefrigeracionLiquida",
+        "modelo": "H100i"
+    }
+]

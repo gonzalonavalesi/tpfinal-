@@ -1,0 +1,14 @@
+{
+    "gmail": "juli@gmail.com",
+    "carritoProductos": {"carrito": []},
+    "usuario": "juliuser23",
+    "tipoDelUsuario": "logueado",
+    "nombre": "julian",
+    "metodosDePago": [{
+        "fechaCaducidad": "2026-05-02",
+        "cvv": 123,
+        "tipoTarjeta": "Visa",
+        "numeroTarjeta": "1234123412341234"
+    }],
+    "contraseña": "estudiante1"
+}
