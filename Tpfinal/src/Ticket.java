@@ -66,7 +66,7 @@ public class Ticket {
         }
     }
 
-    public String imprimirTicket(){
+    public String imprimir(){
 
         calcularTotales();
         StringBuilder info = new StringBuilder();
@@ -86,6 +86,7 @@ public class Ticket {
         info.append("Gracias por su compra");
         return info.toString();
     }
+
 
     public JSONObject toJson(){
         JSONObject jsonTicket = new JSONObject();
