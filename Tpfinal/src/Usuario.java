@@ -74,6 +74,10 @@ public class Usuario {
         return contenido.toString();
     }
 
+    public void vaciarCarrito(){
+        carritoProductos.eliminarCarrito();
+    }
+
     public boolean añadirTarjeta(TipoMetodoDePago tipoTarjeta, String numeroTarjeta, int año, int mes, int dia, int cvv){
         return this.metodosDePago.add(new MetodoDePago(tipoTarjeta, numeroTarjeta, año, mes, dia, cvv));
     }

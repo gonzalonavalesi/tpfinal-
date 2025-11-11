@@ -140,7 +140,7 @@ public class Main {
 
                     case 2:
                         scanner.nextLine();
-                        System.out.println("Ingrese su nombre de usario: ");
+                        System.out.println("Ingrese su nombre de usuario: ");
                         usuarioRegister = scanner.nextLine();
                         System.out.println("Ingrese su contraseña: ");
                         contraseñaRegister = scanner.nextLine();
@@ -268,6 +268,17 @@ public class Main {
                             System.out.println("Error al intentar agregar la tarjeta");
                         }
                         break;
+                    case 5:
+                        sistema.mostrarCarrito(usuarioActual.getUsuario());
+                        System.out.println("Confirma la compra? S/N");
+                        String rta = scanner.nextLine();
+                        if(rta.equalsIgnoreCase("S")){
+                            sistema.getTicket();
+                            usuarioActual.vaciarCarrito();
+                            break;
+                        }else{
+                            break;
+                        }
                     case 6:
                         usuarioActual = new Usuario();
                         break;
@@ -301,6 +312,18 @@ public class Main {
                         System.out.println("PRODUCTOS: ");
                         System.out.println(sistema.verProductos());
                         break;
+                    case 5:
+                        sistema.mostrarCarrito(usuarioActual.getNombre());
+                        String rta;
+                        System.out.println("Confirma la compra? S/N");
+                        rta = scanner.nextLine();
+                        if(rta.equalsIgnoreCase("S")){
+                            sistema.getTicket();
+                            usuarioActual.vaciarCarrito();
+                            break;
+                        }else{
+                            break;
+                        }
                     case 6:
                         usuarioActual = new Usuario();
                         break;
@@ -336,6 +359,18 @@ public class Main {
                     System.out.println("PRODUCTOS: ");
                     System.out.println(sistema.verProductos());
                     break;
+                case 5:
+                    sistema.mostrarCarrito(usuarioActual.getNombre());
+                    String rta;
+                    System.out.println("Confirma la compra? S/N");
+                    rta = scanner.nextLine();
+                    if(rta.equalsIgnoreCase("S")){
+                        sistema.getTicket();
+                        usuarioActual.vaciarCarrito();
+                        break;
+                    }else{
+                        break;
+                    }
                 case 6:
                     System.out.println("ingrese el id a eliminar: ");
                     idProducto=scanner.nextInt();

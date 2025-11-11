@@ -1,6 +1,3 @@
-import org.json.JSONArray;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
 
 public class Carrito <T>{
@@ -14,6 +11,10 @@ public class Carrito <T>{
         return this.carrito.add(t);
     }
 
+    public void eliminarCarrito(){
+        carrito.clear();
+    }
+
     public void eliminarDelCarrito (int pos){
         carrito.remove(pos);
     }
@@ -24,6 +25,13 @@ public class Carrito <T>{
             contenido.append(carrito);
         }
         return contenido.toString();
+    }
+
+    public boolean verificarExistenciaProducto(T elemento){
+        if(carrito.contains(elemento)){
+            return true;
+        }
+        return false;
     }
 
     public ArrayList<T> getCarrito() {

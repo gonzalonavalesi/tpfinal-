@@ -69,7 +69,7 @@ public class SistemaDeGestion {
     public String mostrarCarrito(String nombreUsuario){
         StringBuilder contenido = new StringBuilder();
         for(Usuario usuario : this.arregloUsuarios){
-            if(nombreUsuario.equalsIgnoreCase(usuario.getNombre())){
+            if(nombreUsuario.equalsIgnoreCase(usuario.getUsuario())){
                 contenido.append(usuario.mostrarProductos());
             }
         }
@@ -291,6 +291,19 @@ public class SistemaDeGestion {
             }
         }
         return false;
+    }
+
+    public void getTicket(){
+        Ticket ticket = new Ticket();
+        for(Producto producto : productoHashSet){
+            ticket.agregarProductoTicket(producto);
+        }
+        ticket.imprimirTicket();
+        guardarTicket(ticket.toJson());
+    }
+
+    public static void guardarTicket(JSONObject ticket){
+        JSONUtiles.uploadJsonTicket(ticket);
     }
 
     @Override
