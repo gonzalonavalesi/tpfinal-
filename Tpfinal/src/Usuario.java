@@ -13,12 +13,21 @@ public class Usuario {
     private TipoUsuario tipoDelUsuario;
     private HashSet<MetodoDePago> metodosDePago;
 
-    public Usuario(String usuario, String contraseña, String nombre, String gmail, TipoUsuario tipoUsuario) {
+    public Usuario(String usuario, String contraseña, String nombre, String gmail) {
         this.usuario = usuario;
         this.contraseña = contraseña;
         this.nombre = nombre;
         this.gmail = gmail;
-        this.tipoDelUsuario = tipoUsuario;
+        this.tipoDelUsuario = TipoUsuario.logueado;
+        this.metodosDePago = new HashSet<>();
+    }
+
+    public Usuario(){
+        this.usuario = null;
+        this.contraseña = null;
+        this.nombre = null;
+        this.gmail = null;
+        this.tipoDelUsuario = TipoUsuario.noLogueado;
         this.metodosDePago = new HashSet<>();
     }
 

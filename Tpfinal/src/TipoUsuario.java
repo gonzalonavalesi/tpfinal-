@@ -1,5 +1,6 @@
 public enum TipoUsuario {
     administrador,
     vip,
-    logueado;
+    logueado,
+    noLogueado;
 }

@@ -1,6 +1,7 @@
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.awt.desktop.UserSessionEvent;
 import java.util.*;
 
 public class SistemaDeGestion {
@@ -21,8 +22,8 @@ public class SistemaDeGestion {
         }
     }
 
-    public boolean agregarUsuario(String usuario, String contraseña, String nombre, String gmail, TipoUsuario tipoUsuario) {
-        return this.arregloUsuarios.add(new Usuario(usuario, contraseña, nombre, gmail, tipoUsuario));
+    public boolean agregarUsuario(String usuario, String contraseña, String nombre, String gmail) {
+        return this.arregloUsuarios.add(new Usuario(usuario, contraseña, nombre, gmail));
     }
 
     public boolean agregarMetodoDePago(String nombreUsuario, TipoMetodoDePago tipoTarjeta, String numeroTarjeta, int año, int mes, int dia, int cvv) {
@@ -34,6 +35,15 @@ public class SistemaDeGestion {
             }
         }
         return false;
+    }
+
+    public Usuario actualizarUsuario(String nombreUsuario){
+        for(Usuario usuarios : this.arregloUsuarios){
+            if(usuarios.getUsuario().equalsIgnoreCase(nombreUsuario)){
+                return usuarios;
+            }
+        }
+        return null;
     }
 
     public boolean agregarComboAlCarrito(HashMap<String, Carrito> carritoUsuarios, String nombreUsuario, Combos combo){
@@ -65,6 +75,19 @@ public class SistemaDeGestion {
             contenido.append(iterator.next().getValue());
         }
         return contenido.toString();
+    }
+
+    public Usuario hacerLogin(String usuario, String contraseña)throws ExceptionUsuarioInvalido{
+        for(Usuario usuarios : this.arregloUsuarios){
+            if(usuarios.getUsuario().equalsIgnoreCase(usuario)){
+                if(usuarios.getContraseña().equalsIgnoreCase(contraseña)){
+                    return usuarios;
+                }else {
+                    throw new ExceptionUsuarioInvalido("Contraseña incorrecta, continuaras deslogueado");
+                }
+            }
+        }
+        throw new ExceptionUsuarioInvalido("Nombre de usuario invalido");
     }
 
     public String mostrarUsuarios(){
