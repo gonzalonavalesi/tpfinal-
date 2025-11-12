@@ -1,10 +1,11 @@
+import Exceptions.ExceptionCarritoIsNULL;
+import Exceptions.ExceptionMetodoDePagoNotFound;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.util.MissingFormatArgumentException;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -278,12 +279,9 @@ public class Main {
                         }
                         break;
                     case 5: // Realizar Compra
-                        Ticket ticket = sistema.realizarCompra(usuarioActual.getNombre());
+                        try{
+                            Ticket ticket = sistema.realizarCompra(usuarioActual.getNombre());
 
-                        if(ticket == null){
-                            System.out.println("No se pudo realizar la compra.");
-                            System.out.println("Verifica que tengas productos en el carrito y un método de pago registrado.");
-                        } else {
                             // Actualizar usuario
                             usuarioActual = sistema.actualizarUsuario(usuarioActual.getUsuario());
 
@@ -296,6 +294,11 @@ public class Main {
                             System.out.println(ticket.mostrarProductos());
                             System.out.println("============================\n");
                             System.out.println("¡Compra realizada con éxito!");
+
+                        }catch (ExceptionCarritoIsNULL e){
+                            System.out.println(e.getMessage());
+                        }catch (ExceptionMetodoDePagoNotFound f){
+                            System.out.println(f.getMessage());
                         }
                         break;
 
@@ -404,12 +407,9 @@ public class Main {
                         }
                         break;
                     case 5: // Realizar Compra
-                        Ticket ticket = sistema.realizarCompra(usuarioActual.getNombre());
+                        try{
+                            Ticket ticket = sistema.realizarCompra(usuarioActual.getNombre());
 
-                        if(ticket == null){
-                            System.out.println("No se pudo realizar la compra.");
-                            System.out.println("Verifica que tengas productos en el carrito y un método de pago registrado.");
-                        } else {
                             // Actualizar usuario
                             usuarioActual = sistema.actualizarUsuario(usuarioActual.getUsuario());
 
@@ -422,6 +422,11 @@ public class Main {
                             System.out.println(ticket.mostrarProductos());
                             System.out.println("============================\n");
                             System.out.println("¡Compra realizada con éxito!");
+
+                        }catch (ExceptionCarritoIsNULL e){
+                            System.out.println(e.getMessage());
+                        }catch (ExceptionMetodoDePagoNotFound f){
+                            System.out.println(f.getMessage());
                         }
                         break;
                     case 6:

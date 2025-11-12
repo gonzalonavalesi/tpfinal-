@@ -1,8 +1,8 @@
+import Exceptions.ExceptionCarritoIsNULL;
+import Exceptions.ExceptionMetodoDePagoNotFound;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.awt.*;
-import java.awt.desktop.UserSessionEvent;
 import java.util.*;
 
 public class SistemaDeGestion {
@@ -402,17 +402,17 @@ public class SistemaDeGestion {
         return ticketsArray;
     }
 
-    public Ticket realizarCompra(String nombreUsuario){
+    public Ticket realizarCompra(String nombreUsuario) throws ExceptionCarritoIsNULL, ExceptionMetodoDePagoNotFound {
         for(Usuario usuario : this.arregloUsuarios){
             if(usuario.getNombre().equalsIgnoreCase(nombreUsuario)){
                 // Verificar que tenga productos en el carrito
                 if(usuario.getCarritoProductos().getCarrito().isEmpty()){
-                    return null;
+                    throw new ExceptionCarritoIsNULL("No se pudo realizar la compra.\n"+ "Verifica que tengas productos en el carrito.");
                 }
 
                 // Verificar que tenga método de pago
                 if(usuario.getMetodosDePago().isEmpty()){
-                    return null;
+                    throw new ExceptionMetodoDePagoNotFound("No se pudo realizar la compra.\n"+ "Verifica que tengas un metodo de pago registrado.");
                 }
 
                 // Crear ticket
@@ -429,5 +429,30 @@ public class SistemaDeGestion {
             }
         }
         return null;
+    }
+
+    public String obtenerTotalComputadoraEscritorio(){
+        double total = 0;
+        String info = "";
+        for(Producto p : this.productoHashSet){
+            if (p instanceof ComputadoraEscritorio){
+                total += ((ComputadoraEscritorio) p).GetTotal();
+            }
+        }
+        info = "El total de la Computadora de Escritorio es de: $"+ total;
+        return info;
+    }
+
+    public String obtenerTotalCombo(){
+        double total = 0;
+        String info = "";
+        Combos combos = new Combos();
+        for(Producto p : this.productoHashSet){
+            if (productoHashSet.contains(p.getClass().equals(Combos.class))){
+                total += combos.GetTotal();
+            }
+        }
+        info = "El total del/los combo/s es de: $"+ total;
+        return info;
     }
 }

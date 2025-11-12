@@ -1,6 +1,7 @@
+import Interfaces.ObtenerTotal;
 import org.json.JSONObject;
 
-public class ComputadoraEscritorio extends Producto{
+public class ComputadoraEscritorio extends Producto implements ObtenerTotal {
     private Cpu cpu;
     private Gpu gpu;
     private MotherBoard motherBoard;
@@ -96,6 +97,21 @@ public class ComputadoraEscritorio extends Producto{
 
     public void setGabinete(Gabinete gabinete) {
         this.gabinete = gabinete;
+    }
+
+    @Override
+    public double GetTotal() {
+        double valorTotal=0;
+        valorTotal += this.cpu.getPrecio();
+        valorTotal += this.gpu.getPrecio();
+        valorTotal += this.motherBoard.getPrecio();
+        valorTotal += this.almacenamiento.getPrecio();
+        valorTotal += this.ram.getPrecio();
+        valorTotal += this.refrigeracion.getPrecio();
+        valorTotal += this.fuente.getPrecio();
+        valorTotal += this.gabinete.getPrecio();
+
+        return valorTotal;
     }
 
     @Override
