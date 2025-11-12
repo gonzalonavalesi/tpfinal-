@@ -5,10 +5,12 @@ import java.io.*;
 
 public class JSONUtiles {
 
+    //NOMBRE ARCHIVOS
     private static final String archivoUsuarios = "usuarios";
     private static final String usuarioLogueaado = "usuarioLogueado";
     private static final String archivoTickets = "tickets";
 
+    //METODOS UPLOAD/DOWNLOAD
     public static void uploadJson(JSONArray arreglo){
         try{
             BufferedWriter salida = new BufferedWriter(new FileWriter(archivoUsuarios+".json"));

@@ -1,20 +1,17 @@
 [{
-    "fecha": "2025-11-11T20:21:28.368396900",
+    "fecha": "2025-11-12T07:03:30.268657700",
     "id": 0,
     "nombreUsuario": "julian",
     "productos": [{
-        "marca": "Logitech",
-        "precio": 45000,
-        "tipo": "Mouse",
+        "marca": "SteelSeries",
+        "precio": 125000,
+        "tipo": "Clases.Auricular",
+        "microfono": true,
         "color": "Negro",
-        "inalambrico": false,
-        "idProducto": 16,
+        "inalambrico": true,
+        "idProducto": 21,
+        "audio": "DTS Headphone:X 2.0",
         "rgb": true,
-        "dpi": [
-            800,
-            1600,
-            3200
-        ],
-        "modelo": "G502 Hero"
+        "modelo": "Arctis 7"
     }]
 }]

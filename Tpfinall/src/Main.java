@@ -1,5 +1,11 @@
+import Clases.Combos;
+import Clases.Producto;
+import Clases.Ticket;
+import Clases.Usuario;
+import Enums.*;
 import Exceptions.ExceptionCarritoIsNULL;
 import Exceptions.ExceptionMetodoDePagoNotFound;
+import Exceptions.ExceptionUsuarioInvalido;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -13,6 +19,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
 
+        //DECLARACIONES DE VARIABLES
         SistemaDeGestion sistema = descargarInfo();
         Scanner scanner = new Scanner(System.in);
         int opcion = 0;
@@ -73,6 +80,7 @@ public class Main {
         int eleccion = 0;
         Usuario usuarioActual = descargarUsuario();
 
+        //AGREGADO DE PROPDUCTOS
         sistema.agregarCpu(250000, "Intel", "i5-12400F", Socket.LGA1700, 6, 12, "No");
         sistema.agregarCpu(450000, "AMD", "Ryzen 7 5800X", Socket.AM4, 8, 16, "No");
         sistema.agregarGpu(550000, "NVIDIA", "RTX 3060", 12);
@@ -108,10 +116,20 @@ public class Main {
         sistema.agregarMonitor(320000, "Samsung", "Odyssey G5", "Negro", true, false, 27, "QHD", true, 165, 1);
         sistema.agregarMousePad(15000, "Logitech", "G840", "Negro", false, false, "Tela", "XL");
         sistema.agregarMousePad(25000, "Razer", "Goliathus Extended", "Verde", true, false, "Tela", "XXL");
+        sistema.agregarComputadoraEscritorio(1000000, "Custom Build", "Gaming Pro", 350000, "Intel", "i7-12700K", Socket.LGA1700, 12, 20, "Si", 750000, "NVIDIA", "RTX 4070", 12, 200000, "ASUS", "ROG STRIX Z690", Socket.LGA1700, 150000, "Samsung", "980 PRO 1TB", TipoAlmacenamiento.ssd, 1000, 120000, "Corsair", "Vengeance RGB 32GB", TipoMemoria.DDR5, 32, 80000, "NZXT", "Kraken X63", Socket.LGA1700, TipoRefrigeracion.RefrigeracionLiquida, 180000, "Corsair", "RM850x", 850, Certificacion.plusgold, true, 120000, "Corsair", "4000D Airflow");
+        sistema.agregarNotebook(1000000, "Lenovo", "Legion 5 Pro", 300000, "AMD", "Ryzen 7 6800H", Socket.AM4, 8, 16, "Si", 100000, "NVIDIA", "RTX 3070 Ti", 8, 50000, "Kingston", "NV2 1TB", TipoAlmacenamiento.ssd, 1000, 50000, "Samsung", "DDR5 16GB", TipoMemoria.DDR5, 16, 80, "QHD 165Hz", 16.0, 500000, "Lenovo", "Integrated", Socket.AM4);
 
+        Combos<Producto> comboGamer = new Combos<>(0, "Custom", "Kit Gamer RGB");
+        comboGamer.agregarCombo(sistema.buscarProductoPorId(16));
+        comboGamer.agregarCombo(sistema.buscarProductoPorId(18));
+        comboGamer.agregarCombo(sistema.buscarProductoPorId(20));
+        comboGamer.agregarCombo(sistema.buscarProductoPorId(22));
+        comboGamer.agregarCombo(sistema.buscarProductoPorId(24));
+        sistema.agregarCombo(comboGamer);
 
+        //SISTEMA
         do {
-            if(usuarioActual.getTipoUsuario() == TipoUsuario.noLogueado){
+            if(usuarioActual.getTipoUsuario() == TipoUsuario.noLogueado){ //SISTEMA USUARIO NO LOGUEADO
                 System.out.println("\nBienvenido al sistema de compras tecnologicas del grupo! espero tengas una buena estadia...");
                 System.out.println("Por el momento no te encuentreas logueado, que desea hacer?");
                 System.out.println("1- Loguearse");
@@ -179,14 +197,14 @@ public class Main {
                         break;
                 }
             }
-            if(usuarioActual.getTipoUsuario() == TipoUsuario.logueado){
+            if(usuarioActual.getTipoUsuario() == TipoUsuario.logueado){ //SISTEMA USUSARIO LOGUEADO
                 System.out.println("\nBienvenido "+usuarioActual.getUsuario()+" al sistema de compras tecnologicas del grupo! espero tengas una buena estadia...");
                 System.out.println("1- Ver Productos");
-                System.out.println("2- Añadir productos al carrito");
+                System.out.println("2- Añadir Productos Al Carrito");
                 System.out.println("3- Ver Carrito");
-                System.out.println("4- Agregar Metodo de Pago");
+                System.out.println("4- Agregar Metodo De Pago");
                 System.out.println("5- Realizar Compra");
-                System.out.println("6- Cerrar sesion");
+                System.out.println("6- Cerrar Sesion");
                 System.out.println("0- Cerrar Programa");
                 System.out.println("OPCION: ");
                 try{
@@ -278,22 +296,22 @@ public class Main {
                             System.out.println("Error al intentar agregar la tarjeta");
                         }
                         break;
-                    case 5: // Realizar Compra
+                    case 5:
                         try{
                             Ticket ticket = sistema.realizarCompra(usuarioActual.getNombre());
 
-                            // Actualizar usuario
                             usuarioActual = sistema.actualizarUsuario(usuarioActual.getUsuario());
 
-                            // Mostrar el ticket
+                            guardarTickets(sistema.ticketsToJSON());
+
                             System.out.println("\n===== TICKET DE COMPRA =====");
-                            System.out.println("Ticket ID: " + ticket.getId());
+                            System.out.println("Ticket ID: "+ ticket.getId());
                             System.out.println("Fecha: " + ticket.getFecha());
                             System.out.println("Cliente: " + ticket.getNombreUsuario());
                             System.out.println("\nProductos:");
                             System.out.println(ticket.mostrarProductos());
                             System.out.println("============================\n");
-                            System.out.println("¡Compra realizada con éxito!");
+                            System.out.println("¡Compra realizada con exito!");
 
                         }catch (ExceptionCarritoIsNULL e){
                             System.out.println(e.getMessage());
@@ -307,10 +325,10 @@ public class Main {
                         break;
                 }
             }
-            if(usuarioActual.getTipoUsuario() == TipoUsuario.vip){
+            if(usuarioActual.getTipoUsuario() == TipoUsuario.vip){ //SISTEMA DE USUARIO VIP
                 System.out.println("\nBienvenido "+usuarioActual.getUsuario()+" al sistema de compras tecnologicas del grupo! espero tengas una buena estadia...");
                 System.out.println("1- Ver Productos");
-                System.out.println("2- Añadir productos al carrito");
+                System.out.println("2- Añadir Productos Al Carrito");
                 System.out.println("3- Ver Carrito");
                 System.out.println("4- Agregar Metodo de Pago");
                 System.out.println("5- Realizar Compra");
@@ -343,7 +361,7 @@ public class Main {
                         idAñadirAlCarrito = scanner.nextInt();
                         revision = sistema.agregarProductoAlCarrito(idAñadirAlCarrito, usuarioActual.getNombre());
                         if(revision){
-                            System.out.println("Producto añadido correctamente");
+                            System.out.println("Clases.Producto añadido correctamente");
                         }else{
                             System.out.println("Error al añadir producto");
                         }
@@ -406,22 +424,22 @@ public class Main {
                             System.out.println("Error al intentar agregar la tarjeta");
                         }
                         break;
-                    case 5: // Realizar Compra
+                    case 5:
                         try{
                             Ticket ticket = sistema.realizarCompra(usuarioActual.getNombre());
 
-                            // Actualizar usuario
                             usuarioActual = sistema.actualizarUsuario(usuarioActual.getUsuario());
 
-                            // Mostrar el ticket
+                            guardarTickets(sistema.ticketsToJSON());
+
                             System.out.println("\n===== TICKET DE COMPRA =====");
-                            System.out.println("Ticket ID: " + ticket.getId());
+                            System.out.println("Clases.Ticket ID: " + ticket.getId());
                             System.out.println("Fecha: " + ticket.getFecha());
                             System.out.println("Cliente: " + ticket.getNombreUsuario());
                             System.out.println("\nProductos:");
                             System.out.println(ticket.mostrarProductos());
                             System.out.println("============================\n");
-                            System.out.println("¡Compra realizada con éxito!");
+                            System.out.println("¡Compra realizada con éxito!, ¡Descuento aplicado correctamente!");
 
                         }catch (ExceptionCarritoIsNULL e){
                             System.out.println(e.getMessage());
@@ -434,13 +452,13 @@ public class Main {
                         break;
                 }
             }
-            if(usuarioActual.getTipoUsuario() == TipoUsuario.administrador){
+            if(usuarioActual.getTipoUsuario() == TipoUsuario.administrador){ //SISTEMA DE USUARIO ADMIN
                 System.out.println("\nBienvenido "+usuarioActual.getUsuario()+" al sistema de compras tecnologicas del grupo!");
                 System.out.println("1- Ver Productos");
-                System.out.println("2- Ver Carrito");
-                System.out.println("3- Agreagar productos");
-                System.out.println("4- Eliminar productos");
-                System.out.println("5- Modificar precio");
+                System.out.println("2- Agreagar productos");
+                System.out.println("3- Eliminar productos");
+                System.out.println("4- Modificar precio");
+                System.out.println("5- Revisar Costos");
                 System.out.println("6- Cerrar sesion");
                 System.out.println("0- Cerrar Programa");
                 System.out.println("OPCION: ");
@@ -463,9 +481,6 @@ public class Main {
                     System.out.println(sistema.verProductos());
                     break;
                 case 2:
-                    System.out.println(sistema.mostrarCarrito(usuarioActual.getNombre()));
-                    break;
-                case 3:
                     System.out.println("Que quieres agregar?");
                     System.out.println("1-Almacenamiento");
                     System.out.println("2-GPU");
@@ -522,7 +537,7 @@ public class Main {
                                 System.out.println("error al crear");
                             }
                             break;
-                        case 2: // GPU
+                        case 2:
                             scanner.nextLine();
                             System.out.println("Ingrese el precio: ");
                             precio = scanner.nextDouble();
@@ -545,7 +560,7 @@ public class Main {
                             }
                             break;
 
-                        case 3: // CPU
+                        case 3:
                             scanner.nextLine();
                             System.out.println("Ingrese el precio: ");
                             precio = scanner.nextDouble();
@@ -594,7 +609,7 @@ public class Main {
                             }
                             break;
 
-                        case 4: // MotherBoard
+                        case 4:
                             scanner.nextLine();
                             System.out.println("Ingrese el precio: ");
                             precio = scanner.nextDouble();
@@ -624,7 +639,7 @@ public class Main {
                             }
                             break;
 
-                        case 5: // RAM
+                        case 5:
                             scanner.nextLine();
                             System.out.println("Ingrese el precio: ");
                             precio = scanner.nextDouble();
@@ -658,7 +673,7 @@ public class Main {
                             }
                             break;
 
-                        case 6: // Refrigeracion
+                        case 6:
                             scanner.nextLine();
                             System.out.println("Ingrese el precio: ");
                             precio = scanner.nextDouble();
@@ -699,7 +714,7 @@ public class Main {
                             }
                             break;
 
-                        case 7: // Fuente
+                        case 7:
                             scanner.nextLine();
                             System.out.println("Ingrese el precio: ");
                             precio = scanner.nextDouble();
@@ -714,7 +729,7 @@ public class Main {
                                 System.out.println("Incorrecto, ingrese entre 400 y 1200 Watts: ");
                                 watts = scanner.nextInt();
                             }
-                            System.out.println("Certificacion 1-Plus Bronze 2-Plus Gold 3-Plus Platinum");
+                            System.out.println("Enums.Certificacion 1-Plus Bronze 2-Plus Gold 3-Plus Platinum");
                             eleccion = scanner.nextInt();
                             while((eleccion < 1) || (eleccion > 3)){
                                 System.out.println("Incorrecto, 1-Plus Bronze 2-Plus Gold 3-Plus Platinum");
@@ -736,7 +751,7 @@ public class Main {
 
                             break;
 
-                        case 8: // Gabinete
+                        case 8:
                             scanner.nextLine();
                             System.out.println("Tiene RGB? 1-Si 2-No");
                             eleccion = scanner.nextInt();
@@ -761,7 +776,7 @@ public class Main {
 
                             break;
 
-                        case 9: // Mouse
+                        case 9:
                             scanner.nextLine();
                             System.out.println("Ingrese el precio: ");
                             precio = scanner.nextDouble();
@@ -810,7 +825,7 @@ public class Main {
                             }
                             break;
 
-                        case 10: // Teclado
+                        case 10:
                             scanner.nextLine();
                             System.out.println("Ingrese el precio: ");
                             precio = scanner.nextDouble();
@@ -869,7 +884,7 @@ public class Main {
                             }
                             break;
 
-                        case 11: // Auricular
+                        case 11:
                             scanner.nextLine();
                             System.out.println("Ingrese el precio: ");
                             precio = scanner.nextDouble();
@@ -912,7 +927,7 @@ public class Main {
                             }
                             break;
 
-                        case 12: // Monitor
+                        case 12:
                             scanner.nextLine();
                             System.out.println("Ingrese el precio: ");
                             precio = scanner.nextDouble();
@@ -975,7 +990,7 @@ public class Main {
                             }
                             break;
 
-                        case 13: // MousePad
+                        case 13:
                             scanner.nextLine();
                             System.out.println("Ingrese el precio: ");
                             precio = scanner.nextDouble();
@@ -1015,17 +1030,17 @@ public class Main {
                             break;
 
                     }
-                case 4:
+                case 3:
                     System.out.println("ingrese el id a eliminar: ");
                     idProducto=scanner.nextInt();
                     revision = sistema.eliminarProducto(idProducto);
                     if(revision){
-                        System.out.println("Producto eliminado correctamente");
+                        System.out.println("Clases.Producto eliminado correctamente");
                     }else{
                         System.out.println("Error al eliminar producto");
                     }
                     break;
-                case 5:
+                case 4:
                     idProducto=-1;
                     try {
                         System.out.println("ingrese el id a modificar: ");
@@ -1046,6 +1061,25 @@ public class Main {
                     }else{
                         System.out.println("producto no encontrado");
                     }
+
+                case 5:
+                    System.out.println("1-Combos, 2-ComputadorasDeEscritorio");
+                    try{
+                        eleccion = scanner.nextInt();
+                        while(eleccion<1 || eleccion>2){
+                            System.out.println("Opcion invalida, por favor ingrese una nuevamente: ");
+                            eleccion = scanner.nextInt();
+                        }
+                    }catch (InputMismatchException e){
+                        System.out.println("Error, ingresaste una opcion invalida");
+                    }
+
+                    if(eleccion == 1){
+                        System.out.println(sistema.obtenerTotalCombo());
+                    }else if(eleccion == 2){
+                    System.out.println(sistema.obtenerTotalComputadoraEscritorio());
+                    }
+                    break;
                 case 6:
                     usuarioActual = new Usuario();
                     break;
@@ -1054,6 +1088,7 @@ public class Main {
 
         }while(opcion != 0);
 
+        //SISTEMA PARA GUARDAR USUARIO Y ADEMAS GUARDAR INFORMACION RESTANTE DE LA ENVOLVENETE
         scanner.nextLine();
         if(usuarioActual.getTipoUsuario() != TipoUsuario.noLogueado){
             System.out.println("Desea mantener la sesion iniciada al volver a nuestro programa? (s/n): ");
@@ -1065,15 +1100,12 @@ public class Main {
             guardarUsuario(usuarioActual.toJSON());
         }
 
-        sistema.agregarUsuarioManualmente("Juan2020", "s34u5h3iu4h5ui3h6u3yh56h3yh5u", "Juan", "juanBussines@gmail.com", TipoUsuario.administrador);
-        sistema.agregarUsuarioManualmente("ayeeGamer", "hg6gu3y5g6yu35g63uy5464iu64", "Aye", "aye777@gmail.com", TipoUsuario.vip);
-
-
         System.out.println("Gracias por su estadia, que tengas un buen dia!");
         guardarInfo(sistema.toJSON());
         guardarTickets(sistema.ticketsToJSON());
     }
 
+    //METODOS PARA DESCARGAR INFO AL JSON Y DESCARGAR
     public static void guardarInfo(JSONArray info){
         JSONUtiles.uploadJson(info);
     }
